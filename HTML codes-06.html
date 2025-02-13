@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title> Age Detector</title>
+    </head>
+    <body>
+        <h1>Age Group</h1>
+        <label>Enter age:</label>
+        <input type="number" id="Age">
+        <button onclick="DisplayGrp()">Submit</button>
+        <p id="Result"></p>
+       <script>
+        function Detgrp(age){
+            if (age<12 && age>1){
+                document.getElementById("Result").textContent="Child";
+            }
+            else if (age<18 && age>=12){
+                document.getElementById("Result").textContent="Adolocent";
+            }
+            else if (age<22 && age>=18){
+                document.getElementById("Result").textContent="Youth";
+            }
+            else if (age==1){
+                document.getElementById("Result").textContent="Infant";
+            }
+            else{
+                document.getElementById("Result").textContent="Adult";
+            }
+        }
+            
+            function DisplayGrp(){
+                var age = parseInt(document.getElementById("Age").value); // Get input value
+            if (!isNaN(age)) {
+                Detgrp(age);
+            }
+                else{
+                    document.getElementById("Result").textContent="Enter valid age";
+                }
+            }
+            
+        
+       </script>
+    
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+    <h2>Student Grade Calculator</h2>
+
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" placeholder="Enter Name"><br><br>
+
+    <label>Enter Marks for 5 Subjects:</label><br>
+    <input type="number" id="sub1" placeholder="Subject 1"><br>
+    <input type="number" id="sub2" placeholder="Subject 2"><br>
+    <input type="number" id="sub3" placeholder="Subject 3"><br>
+    <input type="number" id="sub4" placeholder="Subject 4"><br>
+    <input type="number" id="sub5" placeholder="Subject 5"><br><br>
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade() {
+            let name = document.getElementById("name").value.trim();
+            let marks = [
+                parseFloat(document.getElementById("sub1").value),
+                parseFloat(document.getElementById("sub2").value),
+                parseFloat(document.getElementById("sub3").value),
+                parseFloat(document.getElementById("sub4").value),
+                parseFloat(document.getElementById("sub5").value)
+            ];
+
+            // Validate input
+            if (name === "" || marks.some(isNaN)) {
+                document.getElementById("result").innerText = "Please enter all details correctly!";
+                return;
+            }
+
+            
+            let total = marks.reduce((acc, num) => acc + num, 0);
+            let percentage = (total / (5 * 100)) * 100; 
+
+           
+            let grade = "";
+            if (percentage >= 90) grade = "A+";
+            else if (percentage >= 80) grade = "A";
+            else if (percentage >= 70) grade = "B";
+            else if (percentage >= 60) grade = "C";
+            else if (percentage >= 50) grade = "D";
+            else grade = "Fail";
+
+            
+            document.getElementById("result").innerHTML = 
+                `Student Name: <strong>${name}</strong><br>
+                 Total Marks: <strong>${total}</strong><br>
+                 Percentage: <strong>${percentage.toFixed(2)}%</strong><br>
+                 Grade: <strong>${grade}</strong>`;
+        }
+    </script>
+</body>
+</html>

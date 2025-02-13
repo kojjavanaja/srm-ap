@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <label>Enter first value:</label>
+    <input type="number" id="a">
+    <br>
+    <label >Enter second value:</label>
+    
+    <input type="number" id="b">
+    <br>
+    <button onclick="Operation('add')">Addition</button>
+    <button onclick="Operation('sub')">Subtraction</button>
+    <button onclick="Operation('mul')">Product</button>
+    <button onclick="Operation('div')">Divison</button>
+    <p id="Result"> </p>
+    <script>
+       function Operation(x) {
+          if(x=="add"){
+          var c = parseInt(document.getElementById("a").value);
+          var d = parseInt(document.getElementById("b").value);
+           document.getElementById("Result").textContent="Sum:"+(c+d);
+          }
+          if(x=="sub"){
+          var c = parseInt(document.getElementById("a").value);
+          var d = parseInt(document.getElementById("b").value);
+           document.getElementById("Result").textContent="Difference:"+(c-d);
+          }
+          if(x=="mul"){
+          var c = parseInt(document.getElementById("a").value);
+          var d = parseInt(document.getElementById("b").value);
+           document.getElementById("Result").textContent="Product:"+(c*d);
+          }
+          if(x=="div"){
+          var c = parseInt(document.getElementById("a").value);
+          var d = parseInt(document.getElementById("b").value);
+           document.getElementById("Result").textContent="Division:"+(c/d);
+          }
+       }
+
+    </script>
+
+
+</body>
+</html>

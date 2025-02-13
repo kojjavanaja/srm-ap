@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <script>
+        function changeBackgroundColor() {
+           
+            const colors = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33A1", "#A133FF"];
+            
+           
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            
+            
+            document.body.style.backgroundColor = colors[randomIndex];
+        }
+    </script>
+</head>
+<body>
+    <h1>Click the Button to Change Background Color</h1>
+    
+    <button onclick="changeBackgroundColor()">Change Color</button>
+</body>
+</html>
